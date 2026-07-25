@@ -1,65 +1,121 @@
-import Image from "next/image";
+import { Row, SectionHead, Link } from "@/components/Layout";
+import { projects, experience, toolkit } from "@/content/site";
+import { ProjectCard } from "@/components/ProjectCard";
+import { HeroReveal } from "@/components/HeroReveal";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <main className="wrap pt-24 pb-28 sm:pt-32">
+        <Row
+          note={{
+            label: "status",
+            body: "Five things live in production, one open-source tool, all of them solo from architecture through deploy.",
+          }}
+        >
+          <HeroReveal>
+            <h1 className="eyebrow" data-reveal="eyebrow">
+              Aditi Vashishtha
+            </h1>
+
+            <p className="display thesis mt-6">
+              <span className="block overflow-hidden">
+                <span className="block" data-reveal="line">
+                  I build full-stack and
+                </span>
+              </span>
+              <span className="block overflow-hidden">
+                <span className="block" data-reveal="line">
+                  applied AI systems.
+                </span>
+              </span>
+              <span className="block overflow-hidden">
+                <span className="block" data-reveal="line">
+                  Usually alone, usually all
+                </span>
+              </span>
+              <span className="block overflow-hidden">
+                <span className="block" data-reveal="line">
+                  the way to production.
+                </span>
+              </span>
+            </p>
+
+            <p className="dim mt-8" data-reveal="sub">
+              Final-year BCA at Manipal University Jaipur, on the Kalvium
+              software product engineering track. Right now I&apos;m interning
+              in the IT department of a Delhi government power utility. Looking
+              for an SDE or GenAI internship from September 2026.
+            </p>
+          </HeroReveal>
+
+          <nav className="mt-9 flex flex-wrap gap-x-6 gap-y-2">
+            <Link href="https://github.com/AditiV05">GitHub</Link>
+            <Link href="https://linkedin.com/in/aditivashishthaa">
+              LinkedIn
+            </Link>
+            <Link href="mailto:aditi.vashishthaa@gmail.com">Email</Link>
+          </nav>
+        </Row>
+
+        <section className="mt-24 sm:mt-28">
+          <SectionHead id="work" label="selected work" />
+          <div className="flex flex-col gap-6">
+            {projects.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-24 sm:mt-28">
+          <SectionHead id="now" label="right now" />
+          <Row note={experience.note}>
+            <h3 className="display text-[1.6rem]">{experience.role}</h3>
+            <p className="mt-2">{experience.org}</p>
+            <p className="chip mt-3">{experience.meta}</p>
+            {experience.body.map((para) => (
+              <p key={para.slice(0, 24)} className="mt-5">
+                {para}
+              </p>
+            ))}
+          </Row>
+        </section>
+
+        <section className="mt-24 sm:mt-28">
+          <SectionHead id="toolkit" label="toolkit" />
+          <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+            {toolkit.map((g) => (
+              <div key={g.group}>
+                <dt className="eyebrow">{g.group}</dt>
+                <dd className="chip mt-2">{g.items.join(", ")}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
       </main>
-    </div>
+
+      <footer className="band">
+        <div className="wrap py-24 sm:py-28">
+          <SectionHead id="contact" label="contact" />
+          <Row>
+            <p className="display text-[1.7rem]">
+              Open to SDE and GenAI internships from September 2026.
+            </p>
+            <p className="dim mt-4">
+              The fastest way to reach me is email. I answer.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="mailto:aditi.vashishthaa@gmail.com">
+                aditi.vashishthaa@gmail.com
+              </Link>
+              <Link href="https://github.com/AditiV05">GitHub</Link>
+              <Link href="https://linkedin.com/in/aditivashishthaa">
+                LinkedIn
+              </Link>
+            </div>
+          </Row>
+        </div>
+      </footer>
+    </>
   );
 }
