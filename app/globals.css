@@ -17,6 +17,10 @@
 }
 
 @layer base {
+  html {
+    background: var(--color-ink);
+  }
+
   body {
     background: var(--color-paper);
     color: var(--color-ink);
