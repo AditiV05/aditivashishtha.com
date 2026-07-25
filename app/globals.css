@@ -19,6 +19,7 @@
 @layer base {
   html {
     background: var(--color-ink);
+    overscroll-behavior: none;
   }
 
   body {
