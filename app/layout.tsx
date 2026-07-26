@@ -19,7 +19,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aditivashishtha.com"),
-  title: "Aditi Vashishtha",
+  title: "Aditi Vashishtha | Full-stack & Applied AI Engineer",
   description:
     "Full-stack and applied AI engineer. Five things live in production, all solo from architecture through deploy.",
   openGraph: {
