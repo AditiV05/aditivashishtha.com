@@ -109,11 +109,11 @@ export default function Home() {
               <Link href="mailto:aditi.vashishthaa@gmail.com">
                 aditi.vashishthaa@gmail.com
               </Link>
-              <Link href="/resume.pdf">Résumé</Link>
               <Link href="https://github.com/AditiV05">GitHub</Link>
               <Link href="https://linkedin.com/in/aditivashishthaa">
                 LinkedIn
               </Link>
+              <Link href="/resume.pdf">Résumé</Link>
             </div>
           </Row>
         </div>
