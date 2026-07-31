@@ -55,7 +55,7 @@ export default function Home() {
               LinkedIn
             </Link>
             <Link href="mailto:aditi.vashishthaa@gmail.com">Email</Link>
-            <Link href="/Aditi-Vashishtha-Resume.pdf">Résumé</Link>
+            <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
           </nav>
         </Row>
 
@@ -109,7 +109,7 @@ export default function Home() {
               <Link href="mailto:aditi.vashishthaa@gmail.com">
                 aditi.vashishthaa@gmail.com
               </Link>
-              <Link href="/Aditi-Vashishtha-Resume.pdf">Résumé</Link>
+              <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
               <Link href="https://github.com/AditiV05">GitHub</Link>
               <Link href="https://linkedin.com/in/aditivashishthaa">
                 LinkedIn
