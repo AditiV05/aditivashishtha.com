@@ -52,7 +52,7 @@ export function Link({
   href: string;
   children: ReactNode;
 }) {
-  const external = href.startsWith("http");
+  const external = href.startsWith("http") || href.endsWith(".pdf");
   const props = external
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};

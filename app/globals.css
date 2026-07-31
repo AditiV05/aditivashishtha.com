@@ -45,6 +45,12 @@
 }
 
 @layer components {
+  [data-reveal] {
+    opacity: 0;
+  }
+}
+
+@layer components {
   .band {
     background: var(--color-ink);
     color: var(--color-paper);
