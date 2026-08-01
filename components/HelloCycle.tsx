@@ -10,11 +10,15 @@ const GREETINGS = [
   "hola",
   "bonjour",
   "ciao",
+  "hej",
+  "merhaba",
+  "salam",
+  "sawubona",
   "hello",
 ];
 
 const FADE = 500;
-const HOLD = 1500;
+const HOLD = 2000;
 
 export function HelloCycle() {
   const ref = useRef<HTMLSpanElement>(null);

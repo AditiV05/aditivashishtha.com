@@ -1,8 +1,9 @@
 import { Row, SectionHead, Link } from "@/components/Layout";
-import { projects, experience, toolkit, about } from "@/content/site";
+import { projects, experience, about } from "@/content/site";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HeroReveal } from "@/components/HeroReveal";
 import { HelloCycle } from "@/components/HelloCycle";
+import { ToolkitPills } from "@/components/ToolkitPills";
 import Image from "next/image";
 
 export default function Home() {
@@ -159,20 +160,7 @@ export default function Home() {
 
         <section className="mt-24 sm:mt-28">
           <SectionHead id="toolkit" label="toolkit" />
-          <div className="pills">
-            {toolkit.flatMap((g) =>
-              g.items.map((item) => (
-                <span
-                  key={item}
-                  className={
-                    g.group === "ai & retrieval" ? "pill pill-ink" : "pill"
-                  }
-                >
-                  {item}
-                </span>
-              )),
-            )}
-          </div>
+          <ToolkitPills />
         </section>
       </main>
 
