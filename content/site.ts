@@ -7,7 +7,42 @@ export type Project = {
   body: string[];
   note: { label: string; body: string };
   links: { label: string; href: string }[];
-  shot?: { src: string; alt: string; caption: string };
+  shot?: { src: string; alt: string };
+};
+
+export const about = {
+  heading: "Every project says what it doesn't do.",
+  body: "The limitation sits on the card next to the stack, because that is the real state of the thing. A page that only lists what works is describing a good day.",
+  examples: [
+    {
+      source: "a11y Agent",
+      text: "73 to 76% is the share of axe-detected violations of the four targeted types. It is not a claim about the whole page.",
+    },
+    {
+      source: "Familiar",
+      text: "Built as a client-rendered SPA, so shared article links preview blank and Google struggles to index it. Wrong architecture for a publishing platform.",
+    },
+  ],
+  counts: [
+    { n: "5", label: "projects, built solo" },
+    { n: "4", label: "live in production" },
+    { n: "1", label: "open source, MIT" },
+  ],
+  ship: [
+    "axe-core verifies every fix, so the model never grades its own work",
+    "Per-IP rate limits and a global daily cost cap on the LLM endpoints",
+    "Uploads are ephemeral and auto-delete after 30 minutes",
+    "Auth replies identically whether or not the account exists",
+  ],
+  hello: {
+    eyebrow: "hello",
+    name: "Hi, I'm Aditi Vashishtha.",
+    line: "I build alone, which means I break things alone too. That's mostly how I've learned anything.",
+    portrait: {
+      src: "/mascot2.png",
+      alt: "Pixel-art portrait of Aditi Vashishtha",
+    },
+  },
 };
 
 export const projects: Project[] = [
@@ -28,7 +63,10 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/AditiV05/a11y-agent" },
     ],
-    shot: { src: "", alt: "", caption: "before and after, one contrast fix" },
+    shot: {
+      src: "/shots/a11y-agent-2.webp",
+      alt: "The agent's HTML report, showing resolution rates split across three verification tiers",
+    },
   },
   {
     slug: "documind",
@@ -49,6 +87,10 @@ export const projects: Project[] = [
       { label: "Web", href: "https://github.com/AditiV05/documind-web" },
       { label: "API", href: "https://github.com/AditiV05/documind-api" },
     ],
+    shot: {
+      src: "/shots/documind.webp",
+      alt: "A question answered from an uploaded PDF, with the cited passages and their page numbers listed below",
+    },
   },
   {
     slug: "familiar",
@@ -66,8 +108,7 @@ export const projects: Project[] = [
     ],
     body: [
       "Rich-text editor, infinite feed, threaded comments, likes, bookmarks, follows and in-app notifications. Frontend, backend and deployment, all mine.",
-      "The auth surface is the part I'd point at. JWT sessions, Google OAuth with account linking, email verification and password reset on single-use expiring tokens. Auth endpoints return the same response whether or not an account exists, so you can't use them to find out who's registered.",
-      "Notifications are created server-side on engagement events and isolated on purpose. A notification failing never breaks the like or comment that triggered it.",
+      "The auth surface is the part I'd point at: JWT sessions, Google OAuth with account linking, and single-use expiring tokens for email verification and password reset. Notifications are isolated on purpose, so one failing never breaks the like or comment that triggered it.",
     ],
     note: {
       label: "would change",
@@ -77,10 +118,14 @@ export const projects: Project[] = [
       { label: "Live", href: "https://familiar-blog.vercel.app" },
       { label: "GitHub", href: "https://github.com/AditiV05/Familiar" },
     ],
+    shot: {
+      src: "/shots/familiar.webp",
+      alt: "An article page on Familiar, showing the reading view with author, date and read time",
+    },
   },
   {
-    slug: "cafe-scrapbook",
-    title: "Cafe Scrapbook",
+    slug: "cafe-Finder",
+    title: "Cafe Finder",
     blurb: "Cafe discovery for Jaipur, ranked so new places can't game it.",
     status: "live",
     stack: ["React 19", "Vite", "Tailwind", "GPT-4o-mini", "Gemini fallback"],
@@ -96,10 +141,14 @@ export const projects: Project[] = [
       { label: "Live", href: "https://cafe-scrapbook.vercel.app" },
       { label: "GitHub", href: "https://github.com/AditiV05/cafe-scrapbook" },
     ],
+    shot: {
+      src: "/shots/cafe.webp",
+      alt: "Natural language search over Jaipur cafes, with three result cards showing cuisine tags, star ratings and review counts",
+    },
   },
   {
-    slug: "asci-2025",
-    title: "ASCI 2025",
+    slug: "asci-2026",
+    title: "ASCI 2026",
     blurb: "The official site for an international academic conference.",
     status: "live",
     stack: ["React", "Vite", "React Router", "AOS", "Swiper"],
@@ -114,13 +163,18 @@ export const projects: Project[] = [
       { label: "asciconference.in", href: "https://asciconference.in" },
       { label: "GitHub", href: "https://github.com/AditiV05/ASCI-aditi" },
     ],
+    shot: {
+      src: "/shots/asci2.webp",
+      alt: "The conference homepage, with navigation across five sections and the hero showing dates and venue",
+    },
   },
 ];
 
 export const experience = {
+  period: "June — August 2026 · current",
   role: "Software engineering intern",
   org: "Indraprastha Power Generation & Pragati Power Corporation",
-  meta: "Govt. of NCT Delhi · IT department · June to August 2026",
+  meta: "Govt. of NCT Delhi · IT department",
   body: [
     "Maintaining and shipping features on the company's live internal web portals, frontend and backend, for a power utility that serves Delhi.",
     "Directly accountable to the IT department for uptime, functionality and production stability of systems people use to do their jobs.",

@@ -1,7 +1,8 @@
 import { Row, SectionHead, Link } from "@/components/Layout";
-import { projects, experience, toolkit } from "@/content/site";
+import { projects, experience, toolkit, about } from "@/content/site";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HeroReveal } from "@/components/HeroReveal";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <Row
           note={{
             label: "status",
-            body: "Five things live in production, one open-source tool, all of them solo from architecture through deploy.",
+            body: "Five projects, four live in production and one open source, all of them solo from architecture through deploy.",
           }}
         >
           <HeroReveal>
@@ -58,6 +59,74 @@ export default function Home() {
             <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
           </nav>
         </Row>
+        <section className="mt-24 sm:mt-28">
+          <SectionHead id="about" label="about" />
+          <div className="about-stack">
+            <div className="tile tile-hello">
+              <div className="hello-portrait">
+                <Image
+                  src={about.hello.portrait.src}
+                  alt={about.hello.portrait.alt}
+                  width={640}
+                  height={640}
+                />
+              </div>
+              <div>
+                <p className="eyebrow">{about.hello.eyebrow}</p>
+                <p className="display text-[1.35rem] mt-3 hello-name">
+                  {about.hello.name}
+                </p>
+                <p className="mt-3 hello-body">{about.hello.line}</p>
+              </div>
+            </div>
+
+            <div className="bento">
+              <div className="tile tile-ink">
+                <div className="blobs">
+                  <span className="blob blob-a" />
+                  <span className="blob blob-b" />
+                </div>
+                <p className="eyebrow">how I show work</p>
+                <p className="display text-[1.35rem] mt-3">{about.heading}</p>
+                <p className="dim mt-3 text-[0.9rem]">{about.body}</p>
+
+                {about.examples.map((ex) => (
+                  <div className="glass" key={ex.source}>
+                    <p className="glass-head">
+                      <span />
+                      <span className="glass-label">FOR EXAMPLE</span>
+                      <span className="glass-src">{ex.source}</span>
+                    </p>
+                    <p className="glass-body">{ex.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bento-col">
+                <div className="tile tile-pink">
+                  <p className="eyebrow">shipped</p>
+                  <div className="mt-4">
+                    {about.counts.map((c) => (
+                      <div key={c.label} className="count-row">
+                        <span className="count-n">{c.n}</span>
+                        <span className="count-label">{c.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="tile tile-soft">
+                  <p className="eyebrow">how I ship</p>
+                  <ul className="ship-list mt-4">
+                    {about.ship.map((item) => (
+                      <li key={item.slice(0, 20)}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="mt-24 sm:mt-28">
           <SectionHead id="work" label="selected work" />
@@ -68,30 +137,39 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-24 sm:mt-28">
+        <section className="mt-24 sm:mt-28 now">
           <SectionHead id="now" label="right now" />
           <Row note={experience.note}>
-            <h3 className="display text-[1.6rem]">{experience.role}</h3>
-            <p className="mt-2">{experience.org}</p>
-            <p className="chip mt-3">{experience.meta}</p>
-            {experience.body.map((para) => (
-              <p key={para.slice(0, 24)} className="mt-5">
-                {para}
-              </p>
-            ))}
+            <div className="rail">
+              <p className="rail-meta">{experience.period}</p>
+              <h3 className="display text-[1.6rem] mt-3">{experience.role}</h3>
+              <p className="dim mt-2">{experience.org}</p>
+              <p className="chip mt-1">{experience.meta}</p>
+              {experience.body.map((para) => (
+                <p key={para.slice(0, 24)} className="mt-5">
+                  {para}
+                </p>
+              ))}
+            </div>
           </Row>
         </section>
 
         <section className="mt-24 sm:mt-28">
           <SectionHead id="toolkit" label="toolkit" />
-          <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
-            {toolkit.map((g) => (
-              <div key={g.group}>
-                <dt className="eyebrow">{g.group}</dt>
-                <dd className="chip mt-2">{g.items.join(", ")}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="pills">
+            {toolkit.flatMap((g) =>
+              g.items.map((item) => (
+                <span
+                  key={item}
+                  className={
+                    g.group === "ai & retrieval" ? "pill pill-ink" : "pill"
+                  }
+                >
+                  {item}
+                </span>
+              )),
+            )}
+          </div>
         </section>
       </main>
 
