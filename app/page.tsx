@@ -2,6 +2,7 @@ import { Row, SectionHead, Link } from "@/components/Layout";
 import { projects, experience, toolkit, about } from "@/content/site";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HeroReveal } from "@/components/HeroReveal";
+import { HelloCycle } from "@/components/HelloCycle";
 import Image from "next/image";
 
 export default function Home() {
@@ -72,7 +73,9 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="eyebrow">{about.hello.eyebrow}</p>
+                <p className="eyebrow">
+                  <HelloCycle />
+                </p>
                 <p className="display text-[1.35rem] mt-3 hello-name">
                   {about.hello.name}
                 </p>
