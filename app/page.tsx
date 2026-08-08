@@ -29,17 +29,17 @@ export default function Home() {
               </span>
               <span className="block overflow-hidden">
                 <span className="block" data-reveal="line">
-                  applied AI systems.
+                  applied AI systems
                 </span>
               </span>
               <span className="block overflow-hidden">
                 <span className="block" data-reveal="line">
-                  Usually alone, usually all
+                  From idea
                 </span>
               </span>
               <span className="block overflow-hidden">
                 <span className="block" data-reveal="line">
-                  the way to production.
+                  to production.
                 </span>
               </span>
             </p>
