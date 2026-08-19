@@ -39,7 +39,7 @@ export const about = {
     name: "Hi, I'm Aditi Vashishtha.",
     line: "I build alone, which means I break things alone too. That's mostly how I've learned anything.",
     portrait: {
-      src: "/mascot2.png",
+      src: "/halo.png",
       alt: "Pixel-art portrait of Aditi Vashishtha",
     },
   },
