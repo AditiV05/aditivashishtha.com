@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -48,6 +48,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#141d2a",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -55,6 +59,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${newsreader.variable} ${plexMono.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/bg.webp" fetchPriority="high" />
+      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

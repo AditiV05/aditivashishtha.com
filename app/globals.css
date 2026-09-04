@@ -21,7 +21,7 @@
 
 @layer base {
   html {
-    background: var(--color-paper);
+    background: #141d2a;
     overscroll-behavior: none;
   }
 
@@ -49,7 +49,7 @@
         rgb(10 18 28 / 0.3) 45%,
         rgb(10 18 28 / 0.6) 100%
       ),
-      url("/bg.jpg");
+      url("/bg.webp");
     background-size: cover;
     background-position: center;
     opacity: 1;
