@@ -86,6 +86,10 @@ export const projects: Project[] = [
       { label: "Live", href: "https://documind-web-mu.vercel.app" },
       { label: "Web", href: "https://github.com/AditiV05/documind-web" },
       { label: "API", href: "https://github.com/AditiV05/documind-api" },
+      {
+        label: "Read the retrieval eval →",
+        href: "/writing/hybrid-retrieval-eval",
+      },
     ],
     shot: {
       src: "/shots/documind.webp",
@@ -215,3 +219,24 @@ export const toolkit = [
     items: ["Git", "Playwright", "axe-core", "Vercel", "Railway", "Render"],
   },
 ];
+
+export const writing = [
+  {
+    slug: "hybrid-retrieval-eval",
+    href: "/writing/hybrid-retrieval-eval",
+    date: "September 2026",
+    title: "I built hybrid retrieval, then measured it. It tied.",
+    blurb:
+      "A 27-question eval where hybrid search tied with plain vector search, and why the test set was the problem.",
+    results: [
+      { label: "keyword 48%" },
+      { label: "vector 100%" },
+      { label: "hybrid 100%", lead: true },
+    ],
+  },
+];
+
+export const writingNote = {
+  label: "caveat",
+  body: "One post. I write these up when a measurement contradicts what I expected, which so far has happened once.",
+};

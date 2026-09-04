@@ -1,5 +1,5 @@
 import { Row, SectionHead, Link } from "@/components/Layout";
-import { projects, experience, about } from "@/content/site";
+import { projects, about, writing, writingNote, toolkit } from "@/content/site";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HeroReveal } from "@/components/HeroReveal";
 import { HelloCycle } from "@/components/HelloCycle";
@@ -10,57 +10,60 @@ export default function Home() {
   return (
     <>
       <main className="wrap pt-24 pb-28 sm:pt-32">
-        <Row
-          note={{
-            label: "status",
-            body: "Five projects, four live in production and one open source, all of them solo from architecture through deploy.",
-          }}
-        >
-          <HeroReveal>
-            <h1 className="eyebrow" data-reveal="eyebrow">
-              Aditi Vashishtha
-            </h1>
+        <div className="hero-light">
+          <Row
+            note={{
+              label: "status",
+              body: "Five projects, four live in production and one open source, all of them solo from architecture through deploy.",
+            }}
+          >
+            <HeroReveal>
+              <h1 className="eyebrow" data-reveal="eyebrow">
+                Aditi Vashishtha
+              </h1>
 
-            <p className="display thesis mt-6">
-              <span className="block overflow-hidden">
-                <span className="block" data-reveal="line">
-                  I build full-stack and
+              <p className="display thesis mt-6">
+                <span className="block overflow-hidden">
+                  <span className="block" data-reveal="line">
+                    I build full-stack and
+                  </span>
                 </span>
-              </span>
-              <span className="block overflow-hidden">
-                <span className="block" data-reveal="line">
-                  applied AI systems
+                <span className="block overflow-hidden">
+                  <span className="block" data-reveal="line">
+                    applied AI systems
+                  </span>
                 </span>
-              </span>
-              <span className="block overflow-hidden">
-                <span className="block" data-reveal="line">
-                  From idea
+                <span className="block overflow-hidden">
+                  <span className="block" data-reveal="line">
+                    From idea
+                  </span>
                 </span>
-              </span>
-              <span className="block overflow-hidden">
-                <span className="block" data-reveal="line">
-                  to production.
+                <span className="block overflow-hidden">
+                  <span className="block" data-reveal="line">
+                    to production.
+                  </span>
                 </span>
-              </span>
-            </p>
+              </p>
 
-            <p className="dim mt-8" data-reveal="sub">
-              Final-year BCA at Manipal University Jaipur, on the Kalvium
-              software product engineering track. Right now I&apos;m interning
-              in the IT department of a Delhi government power utility. Looking
-              for an SDE or GenAI internship from September 2026.
-            </p>
-          </HeroReveal>
+              <p className="dim mt-8" data-reveal="sub">
+                Final-year BCA at Manipal University Jaipur, on the Kalvium
+                software product engineering track. Right now I&apos;m interning
+                in the IT department of a Delhi government power utility.
+                Looking for an SDE or GenAI internship from September 2026.
+              </p>
+            </HeroReveal>
 
-          <nav className="mt-9 flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="https://github.com/AditiV05">GitHub</Link>
-            <Link href="https://linkedin.com/in/aditivashishthaa">
-              LinkedIn
-            </Link>
-            <Link href="mailto:aditi.vashishthaa@gmail.com">Email</Link>
-            <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
-          </nav>
-        </Row>
+            <nav className="mt-9 flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="https://github.com/AditiV05">GitHub</Link>
+              <Link href="https://linkedin.com/in/aditivashishthaa">
+                LinkedIn
+              </Link>
+              <Link href="mailto:aditi.vashishthaa@gmail.com">Email</Link>
+              <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
+            </nav>
+          </Row>
+        </div>
+
         <section className="mt-24 sm:mt-28">
           <SectionHead id="about" label="about" />
           <div className="about-stack">
@@ -132,7 +135,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-24 sm:mt-28">
+        <section className="mt-24 sm:mt-28 on-photo">
           <SectionHead id="work" label="selected work" />
           <div className="flex flex-col gap-6">
             {projects.map((p) => (
@@ -141,24 +144,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-24 sm:mt-28 now">
-          <SectionHead id="now" label="right now" />
-          <Row note={experience.note}>
-            <div className="rail">
-              <p className="rail-meta">{experience.period}</p>
-              <h3 className="display text-[1.6rem] mt-3">{experience.role}</h3>
-              <p className="dim mt-2">{experience.org}</p>
-              <p className="chip mt-1">{experience.meta}</p>
-              {experience.body.map((para) => (
-                <p key={para.slice(0, 24)} className="mt-5">
-                  {para}
-                </p>
+        <section className="mt-24 sm:mt-28 on-photo">
+          <SectionHead id="writing" label="writing" />
+          <Row note={writingNote}>
+            <div className="log">
+              {writing.map((w) => (
+                <div key={w.slug} className="entry">
+                  <span className="entry-date">{w.date}</span>
+                  <p className="display entry-title">{w.title}</p>
+                  <p className="dim">{w.blurb}</p>
+                  {w.results && (
+                    <div className="results">
+                      {w.results.map((r) => (
+                        <span
+                          key={r.label}
+                          className={r.lead ? "tag tag-lead" : "tag"}
+                        >
+                          {r.label}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="mt-5">
+                    <Link href={w.href}>Read it →</Link>
+                  </p>
+                </div>
               ))}
             </div>
           </Row>
         </section>
 
-        <section className="mt-24 sm:mt-28">
+        <section className="mt-24 sm:mt-28 on-photo">
           <SectionHead id="toolkit" label="toolkit" />
           <ToolkitPills />
         </section>

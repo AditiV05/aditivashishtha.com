@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aditivashishtha.com"),
   title: "Aditi Vashishtha | Full-stack & Applied AI Engineer",
   description:
-    "Full-stack and applied AI engineer. Five things live in production, all solo from architecture through deploy.",
+    "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
   openGraph: {
     title: "Aditi Vashishtha",
     description:
-      "Full-stack and applied AI engineer. Five things live in production, all solo from architecture through deploy.",
+      "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
     url: "https://aditivashishtha.com",
     siteName: "Aditi Vashishtha",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aditi Vashishtha",
     description:
-      "Full-stack and applied AI engineer. Five things live in production, all solo from architecture through deploy.",
+      "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
     images: ["/og.png"],
   },
 };
