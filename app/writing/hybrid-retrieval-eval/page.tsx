@@ -327,7 +327,7 @@ export default function HybridRetrievalEval() {
             <A href="https://github.com/AditiV05">github.com/AditiV05</A>.
           </P>
 
-          <div className="mt-14 rounded-2xl border border-accent/25 bg-accent-soft px-6 pt-6 pb-1 text-[#e3d7c6]">
+          <div className="mt-14 rounded-2xl border border-accent/25 bg-accent-soft px-6 pt-6 pb-1 text-[#2c3150]">
             <P>
               If you have built retrieval evals: what would you put in a test
               set designed to separate lexical from dense retrieval? I want

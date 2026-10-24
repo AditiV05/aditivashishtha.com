@@ -208,7 +208,6 @@ export default function Home() {
       </main>
 
       <footer className="footer">
-        <div className="footer-glow" aria-hidden="true" />
         <div className="wrap">
           <SectionHead id="contact" index="05" label="Contact" />
           <div className="reveal">
