@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     siteName: "Aditi Vashishtha",
     images: [
       {
-        url: "/og.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aditi Vashishtha — I build full-stack and applied AI systems.",
+        alt: "Aditi Vashishtha — I build full-stack and applied AI systems, from idea to production.",
       },
     ],
     locale: "en_US",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Aditi Vashishtha",
     description:
       "Full-stack and applied AI engineer. Four live products, all built solo from architecture through deploy.",
-    images: ["/og.png"],
+    images: ["/og-image.png"],
   },
 };
 
