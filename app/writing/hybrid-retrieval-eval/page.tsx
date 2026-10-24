@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "I fused Postgres full text search with pgvector using Reciprocal Rank Fusion, then ran a 27-question eval to check whether it helped. Keyword-only reached 48% top-1 recall. Vector and hybrid both hit 100%.",
   openGraph: {
-    images: ["/og.png"],
+    images: ["/og-image.png"],
     title: "I built hybrid retrieval, then measured it. It tied.",
     description:
       "A 27-question retrieval eval where hybrid search tied with plain vector search, and why the test set was the problem.",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-09-04",
   },
   twitter: {
-    images: ["/og.png"],
+    images: ["/og-image.png"],
     card: "summary_large_image",
     title: "I built hybrid retrieval, then measured it. It tied.",
     description:
