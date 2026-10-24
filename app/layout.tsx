@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0e14",
+  themeColor: "#f6f0e4",
 };
 
 export default function RootLayout({
@@ -69,7 +69,7 @@ export default function RootLayout({
       className={`${newsreader.variable} ${geist.variable} ${geistMono.variable}`}
     >
       <head>
-        <link rel="preload" as="image" href="/bg.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/pattern3.webp" fetchPriority="high" />
       </head>
       <body suppressHydrationWarning>{children}</body>
     </html>

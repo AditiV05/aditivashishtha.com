@@ -41,7 +41,7 @@ export default function Home() {
 
             <div className="hero-foot" data-reveal="sub">
               <p className="hero-sub">
-                Final-year BCA at Manipal University Jaipur, on the Kalvium
+                Final-year student at Manipal University Jaipur on the Kalvium
                 software product engineering track. Currently interning in the
                 IT department of a Delhi government power utility.
               </p>
@@ -208,7 +208,6 @@ export default function Home() {
       </main>
 
       <footer className="footer">
-        <div className="footer-glow" aria-hidden="true" />
         <div className="wrap">
           <SectionHead id="contact" index="05" label="Contact" />
           <div className="reveal">
