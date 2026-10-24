@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, IBM_Plex_Mono } from "next/font/google";
+import { Newsreader, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -10,10 +10,16 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-plex-mono",
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -21,11 +27,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aditivashishtha.com"),
   title: "Aditi Vashishtha | Full-stack & Applied AI Engineer",
   description:
-    "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
+    "Full-stack and applied AI engineer. Four live products, all built solo from architecture through deploy.",
   openGraph: {
     title: "Aditi Vashishtha",
     description:
-      "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
+      "Full-stack and applied AI engineer. Four live products, all built solo from architecture through deploy.",
     url: "https://aditivashishtha.com",
     siteName: "Aditi Vashishtha",
     images: [
@@ -43,13 +49,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aditi Vashishtha",
     description:
-      "Full-stack and applied AI engineer. Four live products, shipped solo, all solo from architecture through deploy.",
+      "Full-stack and applied AI engineer. Four live products, all built solo from architecture through deploy.",
     images: ["/og.png"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#141d2a",
+  themeColor: "#0a0e14",
 };
 
 export default function RootLayout({
@@ -58,7 +64,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${plexMono.variable}`}>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${geist.variable} ${geistMono.variable}`}
+    >
       <head>
         <link rel="preload" as="image" href="/bg.webp" fetchPriority="high" />
       </head>

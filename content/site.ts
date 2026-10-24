@@ -220,7 +220,14 @@ export const toolkit = [
   },
 ];
 
-export const writing = [
+export const writing: {
+  slug: string;
+  href: string;
+  date: string;
+  title: string;
+  blurb: string;
+  results?: { label: string; value: number; lead?: boolean }[];
+}[] = [
   {
     slug: "hybrid-retrieval-eval",
     href: "/writing/hybrid-retrieval-eval",
@@ -229,9 +236,9 @@ export const writing = [
     blurb:
       "A 27-question eval where hybrid search tied with plain vector search, and why the test set was the problem.",
     results: [
-      { label: "keyword 48%" },
-      { label: "vector 100%" },
-      { label: "hybrid 100%", lead: true },
+      { label: "keyword only", value: 48 },
+      { label: "vector only", value: 100 },
+      { label: "hybrid (RRF)", value: 100, lead: true },
     ],
   },
 ];

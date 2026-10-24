@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 // ---------- small presentational helpers ----------
 
 function P({ children }: { children: React.ReactNode }) {
-  return <p className="mb-5 leading-relaxed text-neutral-700">{children}</p>;
+  return <p className="mb-6">{children}</p>;
 }
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-4 mt-12 text-xl font-semibold tracking-tight text-neutral-900">
+    <h2 className="mb-5 mt-16 font-display text-[1.9rem] leading-tight tracking-tight text-fg">
       {children}
     </h2>
   );
@@ -44,7 +44,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900"
+      className="link"
     >
       {children}
     </a>
@@ -53,7 +53,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
-    <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[0.85em] text-neutral-800">
+    <code className="rounded-md border border-line bg-surface-2 px-1.5 py-0.5 font-mono text-[0.82em] text-accent">
       {children}
     </code>
   );
@@ -63,21 +63,18 @@ function Code({ children }: { children: React.ReactNode }) {
 
 export default function HybridRetrievalEval() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-20">
-      <div className="prose-panel">
-        <Link
-          href="/"
-          className="mb-12 inline-block text-sm text-neutral-500 hover:text-neutral-900"
-        >
-          ← Back
+    <main className="article">
+      <div>
+        <Link href="/#writing" className="article-back">
+          ← Back to aditivashishtha.com
         </Link>
 
         <article>
-          <header className="mb-12">
-            <h1 className="mb-3 text-3xl font-semibold leading-tight tracking-tight text-neutral-900">
+          <header className="mb-14 border-b border-line pb-10">
+            <h1 className="article-title">
               I built hybrid retrieval, then measured it. It tied.
             </h1>
-            <p className="text-sm text-neutral-500">
+            <p className="kicker mt-6">
               <time dateTime="2026-09-04">September 2026</time>
             </p>
           </header>
@@ -109,7 +106,7 @@ export default function HybridRetrievalEval() {
           </P>
 
           <P>
-            <strong className="font-medium text-neutral-900">
+            <strong className="font-medium text-fg">
               Semantic search
             </strong>{" "}
             runs over the embeddings using pgvector, with cosine distance and an
@@ -121,7 +118,7 @@ export default function HybridRetrievalEval() {
           </P>
 
           <P>
-            <strong className="font-medium text-neutral-900">
+            <strong className="font-medium text-fg">
               Keyword search
             </strong>{" "}
             runs over the <Code>tsvector</Code> using Postgres full text search
@@ -131,7 +128,7 @@ export default function HybridRetrievalEval() {
 
           <P>
             Each search returns its own ranked list.{" "}
-            <strong className="font-medium text-neutral-900">
+            <strong className="font-medium text-fg">
               Reciprocal Rank Fusion
             </strong>{" "}
             merges them. Every chunk scores <Code>1 / (60 + rank)</Code> for
@@ -168,30 +165,30 @@ export default function HybridRetrievalEval() {
             position.
           </P>
 
-          <div className="my-8 overflow-x-auto">
-            <table className="w-full border-collapse text-left text-sm">
+          <div className="my-10 overflow-x-auto rounded-2xl border border-line bg-surface p-2">
+            <table className="w-full border-collapse text-left font-mono text-[0.85rem]">
               <thead>
-                <tr className="border-b border-neutral-300">
-                  <th className="py-2 pr-6 font-medium text-neutral-900">
+                <tr className="border-b border-line-strong">
+                  <th className="px-4 py-3 font-normal uppercase tracking-widest text-[0.7rem] text-accent">
                     Retrieval mode
                   </th>
-                  <th className="py-2 font-medium text-neutral-900">
+                  <th className="px-4 py-3 font-normal uppercase tracking-widest text-[0.7rem] text-accent">
                     Top-1 recall
                   </th>
                 </tr>
               </thead>
-              <tbody className="text-neutral-700">
-                <tr className="border-b border-neutral-200">
-                  <td className="py-2 pr-6">Keyword only</td>
-                  <td className="py-2">48% (13/27)</td>
+              <tbody className="text-fg-soft">
+                <tr className="border-b border-line">
+                  <td className="px-4 py-3">Keyword only</td>
+                  <td className="px-4 py-3 text-fg">48% (13/27)</td>
                 </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="py-2 pr-6">Vector only</td>
-                  <td className="py-2">100% (27/27)</td>
+                <tr className="border-b border-line">
+                  <td className="px-4 py-3">Vector only</td>
+                  <td className="px-4 py-3 text-fg">100% (27/27)</td>
                 </tr>
                 <tr>
-                  <td className="py-2 pr-6">Hybrid with RRF</td>
-                  <td className="py-2">100% (27/27)</td>
+                  <td className="px-4 py-3">Hybrid with RRF</td>
+                  <td className="px-4 py-3 text-fg">100% (27/27)</td>
                 </tr>
               </tbody>
             </table>
@@ -204,7 +201,7 @@ export default function HybridRetrievalEval() {
           </P>
 
           <P>
-            <strong className="font-medium text-neutral-900">
+            <strong className="font-medium text-fg">
               Hybrid tied. It did not win.
             </strong>
           </P>
@@ -265,16 +262,16 @@ export default function HybridRetrievalEval() {
 
           <P>The next version needs questions the current one cannot ask:</P>
 
-          <ul className="mb-5 space-y-3 pl-5 text-neutral-700 [&>li]:list-disc [&>li]:leading-relaxed">
+          <ul className="mb-6 space-y-3 pl-5 marker:text-accent [&>li]:list-disc">
             <li>
-              <strong className="font-medium text-neutral-900">
+              <strong className="font-medium text-fg">
                 Exact identifiers.
               </strong>{" "}
               Policy codes, ticket numbers, part numbers, version strings. Cases
               where being semantically close is being wrong.
             </li>
             <li>
-              <strong className="font-medium text-neutral-900">
+              <strong className="font-medium text-fg">
                 A mixed corpus.
               </strong>{" "}
               Not four papers in one field. Documents in different registers, so
@@ -282,21 +279,21 @@ export default function HybridRetrievalEval() {
               correct.
             </li>
             <li>
-              <strong className="font-medium text-neutral-900">
+              <strong className="font-medium text-fg">
                 Distractor chunks.
               </strong>{" "}
               Passages that discuss the same topic but do not contain the
               answer, so that a near miss is punished rather than rewarded.
             </li>
             <li>
-              <strong className="font-medium text-neutral-900">
+              <strong className="font-medium text-fg">
                 Rare terms.
               </strong>{" "}
               Words appearing once or twice, where the embedding has thin signal
               and lexical matching has strong signal.
             </li>
             <li>
-              <strong className="font-medium text-neutral-900">
+              <strong className="font-medium text-fg">
                 Recall at 3 and 5, not just top-1.
               </strong>{" "}
               A ceiling at 100% on one metric hides everything. More metrics,
@@ -330,7 +327,7 @@ export default function HybridRetrievalEval() {
             <A href="https://github.com/AditiV05">github.com/AditiV05</A>.
           </P>
 
-          <div className="mt-12 border-l-2 border-neutral-900 pl-5">
+          <div className="mt-14 rounded-2xl border border-accent/25 bg-accent-soft px-6 pt-6 pb-1 text-[#e3d7c6]">
             <P>
               If you have built retrieval evals: what would you put in a test
               set designed to separate lexical from dense retrieval? I want
