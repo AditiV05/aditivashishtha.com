@@ -198,8 +198,8 @@
     border-radius: 999px;
     background: rgb(255 251 243 / 0.78);
     border: 1px solid rgb(21 26 51 / 0.08);
-    backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
     box-shadow: 0 10px 30px rgb(21 26 51 / 0.08);
   }
 
@@ -355,8 +355,8 @@
     border-radius: 999px;
     background: rgb(255 251 243 / 0.85);
     border: 1px solid var(--color-line-strong);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   .pulse {
@@ -694,7 +694,11 @@
     background: var(--color-surface);
     border: 1px solid var(--color-line);
     overflow: hidden;
-    transition: border-color 300ms ease;
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease,
+      opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   .project:hover {
@@ -1265,46 +1269,88 @@
     color: #9ca2cf;
   }
 
-  /* -- supporting tints: blush and powder blue, flat -- */
-  .tile-hello {
-    background: var(--color-blush);
-    border-color: #e4c4c0;
+  /* -- about bento: frosted glass over a faint band of the block print -- */
+  .bento {
+    position: relative;
+    isolation: isolate;
   }
 
-  .tile-principle {
-    background: var(--color-powder);
-    border-color: #c5d2e1;
+  .bento::before {
+    content: "";
+    position: absolute;
+    inset: -3rem -2rem;
+    z-index: -1;
+    background-image: url("/pattern3.webp");
+    background-size: 380px auto;
+    background-position: center;
+    opacity: 0.32;
+    -webkit-mask-image: radial-gradient(
+      ellipse 60% 60% at 50% 50%,
+      #000 40%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 60% 60% at 50% 50%,
+      #000 40%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 
-  .tile-principle .example {
+  .bento .tile {
+    background: rgb(253 249 243 / 0.5);
+    border: 1px solid rgb(255 255 255 / 0.85);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 0 0 1px rgb(27 33 87 / 0.06),
+      0 22px 44px -26px rgb(27 33 87 / 0.35);
+  }
+
+  .bento .tile-principle {
+    background: rgb(226 231 243 / 0.55);
+  }
+
+  .bento .example {
     background: rgb(255 255 255 / 0.6);
-    border-color: #c5d2e1;
+    border-color: rgb(255 255 255 / 0.9);
+  }
+
+  .bento .ship-list li {
+    border-bottom-color: rgb(27 33 87 / 0.1);
   }
 
   .tile-hello .hello-portrait {
-    border-color: #e4c4c0;
+    border-color: rgb(255 255 255 / 0.9);
   }
 
-  .project:nth-child(odd) .browser {
-    background: var(--color-blush);
-    border-color: #e4c4c0;
+  /* -- project cards: framed in indigo, like the hero and footer plates -- */
+  .project {
+    border: 1.5px solid var(--color-ink);
   }
 
-  .project:nth-child(even) .browser {
-    background: var(--color-powder);
-    border-color: #c5d2e1;
+  .project:hover {
+    border-color: var(--color-ink);
+    box-shadow: 0 22px 44px -28px rgb(27 33 87 / 0.45);
+  }
+
+  .project .browser {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
   }
 
   .project .browser-bar {
-    border-bottom-color: rgb(25 31 77 / 0.08);
+    border-bottom-color: rgb(255 255 255 / 0.1);
   }
 
   .browser-dots i {
-    background: rgb(25 31 77 / 0.16);
+    background: rgb(255 255 255 / 0.22);
   }
 
   .browser-url {
-    background: rgb(255 255 255 / 0.6);
+    background: rgb(255 255 255 / 0.08);
+    color: #c9cce6;
   }
 
   .btn-solid {
