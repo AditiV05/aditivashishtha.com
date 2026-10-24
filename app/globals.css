@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #f3e8d4;
-  --color-surface: #fbf5ea;
-  --color-surface-2: #efe3cd;
-  --color-line: #e3d4ba;
-  --color-line-strong: #cfbb98;
-  --color-fg: #1a2262;
-  --color-fg-soft: #434a72;
-  --color-muted: #7a7590;
-  --color-accent: #2f3da0;
-  --color-accent-soft: #e4e6f5;
-  --color-indigo: #1b2366;
-  --color-indigo-2: #252f7e;
-  --color-marigold: #eaa93f;
+  --color-bg: #f7f0e6;
+  --color-surface: #fdf9f3;
+  --color-surface-2: #f3ebdf;
+  --color-line: #eadfce;
+  --color-line-strong: #d9c9b2;
+  --color-fg: #1f2558;
+  --color-fg-soft: #4a4f73;
+  --color-muted: #7c7891;
+  --color-accent: #3f6fb6;
+  --color-accent-soft: #e3eefa;
+  --color-rose: #bf4d76;
+  --color-blush: #f6cdd8;
+  --color-baby: #c9e0f6;
+  --color-lilac: #e0d4f5;
+  --color-peach: #fadcc6;
+  --color-mint: #cdeadb;
   --color-dusk: #6b74a8;
 
   --font-display: var(--font-newsreader), Georgia, serif;
@@ -25,7 +28,13 @@
 
 @layer base {
   html {
-    background: var(--color-bg);
+    background:
+      radial-gradient(48rem 36rem at 8% 6%, #f8d3dd 0, transparent 70%),
+      radial-gradient(52rem 40rem at 94% 18%, #cfe3f7 0, transparent 70%),
+      radial-gradient(46rem 36rem at 78% 88%, #e3d7f6 0, transparent 70%),
+      radial-gradient(44rem 34rem at 12% 92%, #fbe0cc 0, transparent 70%),
+      var(--color-bg);
+    background-attachment: fixed;
     color-scheme: light;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
@@ -100,7 +109,7 @@
   em {
     font-family: var(--font-display);
     font-style: italic;
-    color: var(--color-accent);
+    color: var(--color-rose);
   }
 
   a:focus-visible {
@@ -1066,48 +1075,10 @@
   /* -- footer -- */
   .footer {
     position: relative;
-    margin-top: 9rem;
-    padding-top: 7rem;
-    background: var(--color-indigo);
-    color: #d9dcf0;
+    margin: 9rem 1rem 1rem;
+    padding-top: 6rem;
+    border-radius: 32px;
     overflow: hidden;
-    isolation: isolate;
-  }
-
-  /* the block print again, inverted to cream on indigo */
-  .footer::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: url("/pattern3.webp");
-    background-size: 500px auto;
-    filter: invert(1) sepia(0.4);
-    opacity: 0.07;
-  }
-
-  .footer .section-label,
-  .footer-sub {
-    color: #c9cde8;
-  }
-
-  .footer .section-index,
-  .footer em {
-    color: var(--color-marigold);
-  }
-
-  .footer .section-line {
-    background: rgb(255 255 255 / 0.2);
-  }
-
-  .footer .link {
-    color: #e9ebf7;
-    text-decoration-color: rgb(255 255 255 / 0.25);
-  }
-
-  .footer .link:hover {
-    color: var(--color-marigold);
-    text-decoration-color: var(--color-marigold);
   }
 
   .footer-title {
@@ -1116,7 +1087,7 @@
     font-size: clamp(2.4rem, 6.5vw, 5rem);
     line-height: 1.02;
     letter-spacing: -0.03em;
-    color: var(--color-surface);
+    color: var(--color-fg);
     text-wrap: balance;
   }
 
@@ -1131,9 +1102,9 @@
     gap: 0.6rem;
     margin-top: 2.25rem;
     font-size: clamp(1.1rem, 2.6vw, 1.6rem);
-    color: var(--color-surface);
+    color: var(--color-fg);
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgb(255 255 255 / 0.25);
+    border-bottom: 1px solid rgb(31 37 88 / 0.25);
     transition:
       color 180ms ease,
       border-color 180ms ease;
@@ -1141,21 +1112,21 @@
   }
 
   .footer-email:hover {
-    color: var(--color-marigold);
-    border-color: var(--color-marigold);
+    color: var(--color-rose);
+    border-color: var(--color-rose);
   }
 
   .footer-base {
     position: relative;
-    margin-top: 7rem;
+    margin-top: 6rem;
     padding: 1.75rem 0 2.25rem;
-    border-top: 1px solid rgb(255 255 255 / 0.14);
+    border-top: 1px solid rgb(255 255 255 / 0.7);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
     font-size: 0.85rem;
-    color: #a9aed3;
+    color: var(--color-muted);
   }
 
   .footer-links {
@@ -1163,95 +1134,164 @@
     gap: 1.25rem;
   }
 
-  /* -- indigo colour blocks -- */
-  .browser {
-    background: var(--color-indigo);
-    border-color: var(--color-indigo);
+  /* -- pastel glass --
+     every surface is frosted glass over the pastel wash, each with its own tint */
+  .tile,
+  .project,
+  .post,
+  .pills,
+  .bars,
+  .browser,
+  .caveat,
+  .example,
+  .tag,
+  .pill,
+  .footer {
+    --tint: rgb(255 255 255 / 0.2);
+    background:
+      linear-gradient(140deg, rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.12)),
+      var(--tint);
+    border: 1px solid rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
   }
 
-  .browser-bar {
-    border-bottom-color: rgb(255 255 255 / 0.1);
+  .tile,
+  .project,
+  .post,
+  .pills,
+  .footer {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 24px 60px -28px rgb(90 70 140 / 0.28);
+  }
+
+  .project:hover,
+  .post:hover {
+    border-color: #fff;
+  }
+
+  .tile-hello { --tint: rgb(246 205 216 / 0.55); }
+  .tile-principle { --tint: rgb(201 224 246 / 0.6); }
+  .tile-ship { --tint: rgb(224 212 245 / 0.55); }
+
+  .project:nth-child(5n + 1) { --tint: rgb(201 224 246 / 0.5); }
+  .project:nth-child(5n + 2) { --tint: rgb(246 205 216 / 0.5); }
+  .project:nth-child(5n + 3) { --tint: rgb(224 212 245 / 0.55); }
+  .project:nth-child(5n + 4) { --tint: rgb(250 220 198 / 0.55); }
+  .project:nth-child(5n + 5) { --tint: rgb(205 234 219 / 0.55); }
+
+  .post { --tint: rgb(250 220 198 / 0.5); }
+  .bars { --tint: rgb(201 224 246 / 0.6); }
+  .pills { --tint: rgb(224 212 245 / 0.45); }
+
+  .footer {
+    background:
+      linear-gradient(
+        120deg,
+        rgb(246 205 216 / 0.75),
+        rgb(224 212 245 / 0.65) 50%,
+        rgb(201 224 246 / 0.75)
+      );
+  }
+
+  .browser {
+    --tint: rgb(255 255 255 / 0.3);
   }
 
   .browser-dots i {
-    background: rgb(255 255 255 / 0.22);
+    background: rgb(31 37 88 / 0.14);
   }
 
-  .browser-dots i:first-child {
-    background: var(--color-marigold);
-  }
+  .browser-dots i:nth-child(1) { background: #f2a7b9; }
+  .browser-dots i:nth-child(2) { background: #f6cf8f; }
+  .browser-dots i:nth-child(3) { background: #9fd3b5; }
 
   .browser-url {
-    background: rgb(255 255 255 / 0.08);
-    color: #c9cde8;
+    background: rgb(255 255 255 / 0.65);
+    color: var(--color-muted);
   }
 
-  .tile-principle {
-    background: var(--color-indigo);
-    border-color: var(--color-indigo);
+  .example,
+  .tag,
+  .pill {
+    --tint: rgb(255 255 255 / 0.25);
   }
 
-  .tile-principle .kicker {
-    color: var(--color-marigold);
+  .caveat {
+    --tint: rgb(255 255 255 / 0.35);
+    color: var(--color-fg-soft);
   }
 
-  .tile-principle .tile-lede {
-    color: var(--color-surface);
+  .caveat-label,
+  .example-src,
+  .section-index,
+  .kicker-accent {
+    color: var(--color-rose);
   }
 
-  .tile-principle .example {
-    background: rgb(255 255 255 / 0.06);
-    border-color: rgb(255 255 255 / 0.12);
+  .caveat-dot {
+    background: var(--color-rose);
   }
 
-  .tile-principle .example-src {
-    color: var(--color-marigold);
-  }
-
-  .tile-principle .caveat-dot {
-    background: var(--color-marigold);
-  }
-
-  .tile-principle blockquote {
-    color: #d9dcf0;
-  }
-
-  .bars {
-    background: var(--color-indigo);
-    border-color: var(--color-indigo);
-  }
-
-  .bars .kicker {
-    color: #a9aed3;
-  }
-
-  .bars .bar-label {
-    color: #d9dcf0;
-  }
-
-  .bars .bar-value {
-    color: var(--color-surface);
-  }
-
-  .bars .bar-track {
-    background: rgb(255 255 255 / 0.1);
-  }
-
-  .bars .bar-fill {
-    background: rgb(255 255 255 / 0.35);
-  }
-
-  .bars .bar-lead .bar-fill {
-    background: var(--color-marigold);
-  }
-
-  .stat-n {
+  .ship-n {
     color: var(--color-accent);
   }
 
+  .pill-ink {
+    background: linear-gradient(135deg, #f6cdd8, #c9e0f6);
+    border-color: rgb(255 255 255 / 0.9);
+    color: var(--color-fg);
+  }
+
+  .bar-track {
+    background: rgb(255 255 255 / 0.6);
+  }
+
+  .bar-fill {
+    background: #a9c3e3;
+  }
+
+  .bar-lead .bar-fill {
+    background: linear-gradient(90deg, #ee9fb6, #8fb7e6);
+  }
+
+  .stat-n {
+    color: var(--color-fg);
+  }
+
+  .stat:nth-child(1) .stat-n { color: var(--color-rose); }
+  .stat:nth-child(2) .stat-n { color: var(--color-accent); }
+  .stat:nth-child(3) .stat-n { color: #7b5fb8; }
+
   .nav-mark-dot {
-    background: var(--color-marigold);
-    box-shadow: 0 0 10px rgb(234 169 63 / 0.7);
+    background: linear-gradient(135deg, #ee9fb6, #8fb7e6);
+    box-shadow: 0 0 10px rgb(238 159 182 / 0.7);
+  }
+
+  .btn-solid {
+    background: var(--color-fg);
+    color: #fdf9f3;
+  }
+
+  .btn-solid:hover {
+    background: var(--color-rose);
+  }
+
+  .btn-ghost {
+    background: rgb(255 255 255 / 0.5);
+    border-color: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .btn-ghost:hover {
+    background: rgb(255 255 255 / 0.8);
+    border-color: #fff;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-rose);
   }
 
   /* -- article -- */
