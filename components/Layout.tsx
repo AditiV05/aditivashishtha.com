@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 const RESUME = "/aditivashishtha_resume.pdf";
 
@@ -17,11 +18,19 @@ export function Nav() {
     <header className="nav-shell">
       <nav className="nav" aria-label="Primary">
         <a href="#top" className="nav-mark" aria-label="Aditi Vashishtha, home">
-          <span className="nav-mark-dot" aria-hidden="true" />
+          <Image
+            src="/motifs/elephant.png"
+            alt=""
+            aria-hidden="true"
+            className="nav-mark-icon"
+            width={146}
+            height={114}
+          />
           Aditi Vashishtha
         </a>
         <div className="nav-links">
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
           <a href="#work">Work</a>
           <a href="#writing">Writing</a>
           <a href="#contact">Contact</a>
@@ -48,6 +57,11 @@ export function SectionHead({
 }) {
   return (
     <div className="section-head reveal">
+      <div className="divider" aria-hidden="true">
+        <span />
+        <Image src="/motifs/sprig.png" alt="" width={59} height={60} />
+        <span />
+      </div>
       <h2 id={id} className="section-label">
         <span className="section-index">{index}</span>
         <span className="section-line" aria-hidden="true" />

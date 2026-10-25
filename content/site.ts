@@ -8,6 +8,7 @@ export type Project = {
   note: { label: string; body: string };
   links: { label: string; href: string }[];
   shot?: { src: string; alt: string };
+  metric?: { value: string; label: string };
 };
 
 export const about = {
@@ -51,6 +52,10 @@ export const projects: Project[] = [
     title: "a11y Agent",
     blurb:
       "An accessibility agent that isn't allowed to grade its own homework.",
+    metric: {
+      value: "73–76%",
+      label: "of axe-detected violations fixed and re-verified, across four live sites",
+    },
     stack: ["Python", "Playwright", "axe-core", "GPT-4o-mini"],
     body: [
       "Scans a live page, proposes a context-aware fix for one of four issue types, applies it, re-scans to confirm the violation actually cleared, and retries once with the axe error as feedback before failing honestly.",
@@ -73,6 +78,10 @@ export const projects: Project[] = [
     title: "DocuMind",
     blurb: "Document Q&A that has to survive two retrievers before it answers.",
     status: "live",
+    metric: {
+      value: "27 / 27",
+      label: "top-1 recall on a hand-labelled eval, tied with plain vector search",
+    },
     stack: ["Next.js", "FastAPI", "Postgres + pgvector", "Langfuse"],
     body: [
       "Postgres full-text search and pgvector run side by side, and reciprocal rank fusion merges the two rankings. A passage has to place well on keyword match and on semantic similarity before it gets cited.",
@@ -123,19 +132,23 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AditiV05/Familiar" },
     ],
     shot: {
-      src: "/shots/familiar.webp",
-      alt: "An article page on Familiar, showing the reading view with author, date and read time",
+      src: "/shots/familiar-feed.webp",
+      alt: "The Familiar home feed in dark mode, with recent essays, their cover images and a trending sidebar",
     },
   },
   {
     slug: "cafe-Finder",
-    title: "Cafe Finder",
+    title: "Café Scrapbook",
     blurb: "Cafe discovery for Jaipur, ranked so new places can't game it.",
     status: "live",
+    metric: {
+      value: "45",
+      label: "Jaipur cafés, ranked from 44,717 reviews",
+    },
     stack: ["React 19", "Vite", "Tailwind", "GPT-4o-mini", "Gemini fallback"],
     body: [
-      "44 Jaipur cafes drawn from a public Zomato dataset, with natural language search. GPT-4o-mini parses the query, Gemini takes over when it doesn't.",
-      "Ranking is a Bayesian weighted score rather than a raw average, so a cafe with four five-star reviews doesn't outrank one with two hundred good ones. Custom pixel-art interface, built and deployed solo.",
+      "45 Jaipur cafes drawn from a public Zomato dataset, with natural language search. GPT-4o-mini parses the query, Gemini takes over when it doesn't.",
+      "Ranking is a Bayesian weighted score rather than a raw average, so a cafe with four five-star reviews doesn't outrank one with two hundred good ones. Hand-built scrapbook interface, designed and deployed solo.",
     ],
     note: {
       label: "two vintages",
@@ -146,8 +159,8 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AditiV05/cafe-scrapbook" },
     ],
     shot: {
-      src: "/shots/cafe.webp",
-      alt: "Natural language search over Jaipur cafes, with three result cards showing cuisine tags, star ratings and review counts",
+      src: "/shots/cafe-scrapbook.webp",
+      alt: "The Jaipur cafe scrapbook: natural language search, area, type and budget filters, and ranked cafe cards pinned to the page",
     },
   },
   {
