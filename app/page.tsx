@@ -30,7 +30,7 @@ export default function Home() {
           <HeroReveal>
             <p className="availability" data-reveal="eyebrow">
               <span className="pulse" aria-hidden="true" />
-              Open to SDE &amp; GenAI internships · September 2026
+              Open to SDE &amp; GenAI roles · from November 2026
             </p>
 
             <h1 className="hero-title">
@@ -51,8 +51,9 @@ export default function Home() {
             <div className="hero-foot" data-reveal="sub">
               <p className="hero-sub">
                 Final-year student at Manipal University Jaipur on the Kalvium
-                software product engineering track. Currently interning in the
-                IT department of a Delhi government power utility.
+                software product engineering track. Software engineering intern in
+                the IT department of a Delhi government power utility, June to
+                October 2026.
               </p>
               <div className="hero-ctas">
                 <Button href="#work" variant="solid">
@@ -252,8 +253,8 @@ export default function Home() {
           <SectionHead id="contact" index="06" label="Contact" />
           <div className="reveal">
             <p className="footer-title">
-              Open to SDE and GenAI internships from{" "}
-              <em>September 2026.</em>
+              Open to SDE and GenAI roles from{" "}
+              <em>November 2026.</em>
             </p>
             <p className="footer-sub">
               The fastest way to reach me is email. I answer.

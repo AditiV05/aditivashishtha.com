@@ -1,7 +1,16 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { MobileMenu } from "@/components/MobileMenu";
 
 const RESUME = "/aditivashishtha_resume.pdf";
+
+const SECTIONS = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#work", label: "Work" },
+  { href: "#writing", label: "Writing" },
+  { href: "#contact", label: "Contact" },
+];
 
 function isExternal(href: string) {
   return href.startsWith("http") || href.endsWith(".pdf");
@@ -29,16 +38,17 @@ export function Nav() {
           Aditi Vashishtha
         </a>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#work">Work</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+          {SECTIONS.map((l) => (
+            <a key={l.href} href={l.href}>
+              {l.label}
+            </a>
+          ))}
         </div>
         <a href={RESUME} className="nav-cta" {...externalProps(RESUME)}>
           Résumé
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
+        <MobileMenu links={SECTIONS} />
       </nav>
     </header>
   );

@@ -60,6 +60,12 @@ export function ProjectCard({
           </div>
           <h3 className="project-title">{project.title}</h3>
           <p className="project-blurb">{project.blurb}</p>
+          {project.metric && (
+            <div className="metric metric-inline">
+              <p className="metric-value">{project.metric.value}</p>
+              <p className="metric-label">{project.metric.label}</p>
+            </div>
+          )}
           <p className="project-para">{lead}</p>
           {more.length > 0 && (
             <details className="more">
@@ -90,7 +96,7 @@ export function ProjectCard({
 
         <aside className="project-side">
           {project.metric && (
-            <div className="metric">
+            <div className="metric metric-side">
               <p className="metric-value">{project.metric.value}</p>
               <p className="metric-label">{project.metric.label}</p>
             </div>
