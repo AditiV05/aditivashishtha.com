@@ -40,7 +40,7 @@ export const about = {
     name: "Hi, I'm Aditi Vashishtha.",
     line: "I build alone, which means I break things alone too. That's mostly how I've learned anything.",
     portrait: {
-      src: "/halo.png",
+      src: "/halo.webp",
       alt: "Pixel-art portrait of Aditi Vashishtha",
     },
   },
@@ -181,7 +181,7 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AditiV05/ASCI-aditi" },
     ],
     shot: {
-      src: "/shots/asci2.webp",
+      src: "/shots/asci-home.webp",
       alt: "The conference homepage, with navigation across five sections and the hero showing dates and venue",
     },
   },
