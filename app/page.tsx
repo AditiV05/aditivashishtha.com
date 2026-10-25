@@ -51,8 +51,9 @@ export default function Home() {
             <div className="hero-foot" data-reveal="sub">
               <p className="hero-sub">
                 Final-year student at Manipal University Jaipur on the Kalvium
-                software product engineering track. Currently interning in the
-                IT department of a Delhi government power utility.
+                software product engineering track. Software engineering intern in
+                the IT department of a Delhi government power utility, June to
+                October 2026.
               </p>
               <div className="hero-ctas">
                 <Button href="#work" variant="solid">

@@ -188,7 +188,7 @@ export const projects: Project[] = [
 ];
 
 export const experience = {
-  period: "June — August 2026 · current",
+  period: "June — October 2026",
   role: "Software engineering intern",
   org: "Indraprastha Power Generation & Pragati Power Corporation",
   meta: "Govt. of NCT Delhi · IT department",
