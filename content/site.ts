@@ -123,19 +123,19 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AditiV05/Familiar" },
     ],
     shot: {
-      src: "/shots/familiar.webp",
-      alt: "An article page on Familiar, showing the reading view with author, date and read time",
+      src: "/shots/familiar-feed.webp",
+      alt: "The Familiar home feed in dark mode, with recent essays, their cover images and a trending sidebar",
     },
   },
   {
     slug: "cafe-Finder",
-    title: "Cafe Finder",
+    title: "Café Scrapbook",
     blurb: "Cafe discovery for Jaipur, ranked so new places can't game it.",
     status: "live",
     stack: ["React 19", "Vite", "Tailwind", "GPT-4o-mini", "Gemini fallback"],
     body: [
-      "44 Jaipur cafes drawn from a public Zomato dataset, with natural language search. GPT-4o-mini parses the query, Gemini takes over when it doesn't.",
-      "Ranking is a Bayesian weighted score rather than a raw average, so a cafe with four five-star reviews doesn't outrank one with two hundred good ones. Custom pixel-art interface, built and deployed solo.",
+      "45 Jaipur cafes drawn from a public Zomato dataset, with natural language search. GPT-4o-mini parses the query, Gemini takes over when it doesn't.",
+      "Ranking is a Bayesian weighted score rather than a raw average, so a cafe with four five-star reviews doesn't outrank one with two hundred good ones. Hand-built scrapbook interface, designed and deployed solo.",
     ],
     note: {
       label: "two vintages",
@@ -146,8 +146,8 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AditiV05/cafe-scrapbook" },
     ],
     shot: {
-      src: "/shots/cafe.webp",
-      alt: "Natural language search over Jaipur cafes, with three result cards showing cuisine tags, star ratings and review counts",
+      src: "/shots/cafe-scrapbook.webp",
+      alt: "The Jaipur cafe scrapbook: natural language search, area, type and budget filters, and ranked cafe cards pinned to the page",
     },
   },
   {
