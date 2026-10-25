@@ -11,6 +11,8 @@ import { HeroReveal } from "@/components/HeroReveal";
 import { HelloCycle } from "@/components/HelloCycle";
 import { ToolkitPills } from "@/components/ToolkitPills";
 import { Reveal } from "@/components/Reveal";
+import { Motion } from "@/components/Motion";
+import { CopyEmail, LocalTime } from "@/components/FooterExtras";
 import Image from "next/image";
 
 const EMAIL = "aditi.vashishthaa@gmail.com";
@@ -20,6 +22,7 @@ export default function Home() {
     <>
       <Nav />
       <Reveal />
+      <Motion />
 
       <section id="top" className="hero">
         <div className="hero-bg" aria-hidden="true" />
@@ -255,13 +258,19 @@ export default function Home() {
             <p className="footer-sub">
               The fastest way to reach me is email. I answer.
             </p>
-            <a className="footer-email" href={`mailto:${EMAIL}`}>
-              {EMAIL}
-              <span aria-hidden="true">↗</span>
-            </a>
+            <div className="footer-actions">
+              <a className="footer-email" href={`mailto:${EMAIL}`}>
+                {EMAIL}
+                <span aria-hidden="true">↗</span>
+              </a>
+              <CopyEmail email={EMAIL} />
+            </div>
           </div>
           <div className="footer-base">
-            <span>© 2026 Aditi Vashishtha</span>
+            <span className="footer-meta">
+              <span>© 2026 Aditi Vashishtha</span>
+              <LocalTime />
+            </span>
             <span className="footer-links">
               <Link href="https://github.com/AditiV05">GitHub</Link>
               <Link href="https://linkedin.com/in/aditivashishthaa">

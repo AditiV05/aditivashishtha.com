@@ -140,20 +140,33 @@
     color: var(--color-accent);
   }
 
+  /* faint resting underline; a solid one draws in from the left on hover */
   .link {
+    --link-rest: var(--color-line-strong);
+    --link-hover: var(--color-accent);
     color: var(--color-fg);
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: var(--color-line-strong);
+    text-decoration: none;
+    padding-bottom: 2px;
+    background-image:
+      linear-gradient(var(--link-hover), var(--link-hover)),
+      linear-gradient(var(--link-rest), var(--link-rest));
+    background-size:
+      0% 1px,
+      100% 1px;
+    background-position:
+      0 100%,
+      0 100%;
+    background-repeat: no-repeat;
     transition:
       color 180ms ease,
-      text-decoration-color 180ms ease;
+      background-size 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   .link:hover {
     color: var(--color-accent);
-    text-decoration-color: var(--color-accent);
+    background-size:
+      100% 1px,
+      100% 1px;
   }
 
   /* -- scroll reveal (hidden state only once JS is ready) -- */
@@ -765,12 +778,27 @@
     width: 100%;
     aspect-ratio: 2.6 / 1;
     object-fit: cover;
-    object-position: top center;
-    transition: transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    object-position: center top;
+    transition:
+      transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      object-position 900ms ease;
   }
 
   .project:hover .shot {
-    transform: scale(1.025);
+    transform: scale(1.02);
+    object-position: center bottom;
+    transition:
+      transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      object-position 6s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shot,
+    .project:hover .shot {
+      transition: none;
+      transform: none;
+      object-position: center top;
+    }
   }
 
   .project-body {
@@ -1227,14 +1255,14 @@
 
   .hero .link,
   .footer .link {
+    --link-rest: rgb(255 255 255 / 0.3);
+    --link-hover: var(--color-blush-ink);
     color: var(--color-paper);
-    text-decoration-color: rgb(255 255 255 / 0.3);
   }
 
   .hero .link:hover,
   .footer .link:hover {
     color: var(--color-blush-ink);
-    text-decoration-color: var(--color-blush-ink);
   }
 
   .footer {
@@ -1615,6 +1643,73 @@
 
   .xp .caveat {
     align-self: start;
+  }
+
+  /* -- hero drift, footer extras -- */
+  .hero-bg {
+    inset: -25% 0 0;
+    transform: translate3d(0, var(--hero-drift, 0px), 0);
+    will-change: transform;
+  }
+
+  .footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.25rem;
+  }
+
+  .footer-actions .footer-email {
+    margin-top: 0;
+  }
+
+  .copy-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgb(255 255 255 / 0.28);
+    background: transparent;
+    color: var(--color-paper);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .copy-email:hover {
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.55);
+  }
+
+  .copy-email:focus-visible {
+    outline: 2px solid var(--color-blush-ink);
+    outline-offset: 3px;
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+  }
+
+  .local-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .local-time-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #5fc28a;
   }
 
   /* -- article -- */
