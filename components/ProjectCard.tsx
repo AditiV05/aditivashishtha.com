@@ -16,6 +16,7 @@ export function ProjectCard({
   index: number;
 }) {
   const [primary, ...rest] = project.links;
+  const [lead, ...more] = project.body;
 
   return (
     <article className="project reveal">
@@ -59,11 +60,20 @@ export function ProjectCard({
           </div>
           <h3 className="project-title">{project.title}</h3>
           <p className="project-blurb">{project.blurb}</p>
-          {project.body.map((para) => (
-            <p key={para.slice(0, 24)} className="project-para">
-              {para}
-            </p>
-          ))}
+          <p className="project-para">{lead}</p>
+          {more.length > 0 && (
+            <details className="more">
+              <summary>
+                <span className="more-open">Read more</span>
+                <span className="more-close">Show less</span>
+              </summary>
+              {more.map((para) => (
+                <p key={para.slice(0, 24)} className="project-para">
+                  {para}
+                </p>
+              ))}
+            </details>
+          )}
           <div className="project-links">
             {primary && (
               <Button href={primary.href} variant="solid">
@@ -79,6 +89,12 @@ export function ProjectCard({
         </div>
 
         <aside className="project-side">
+          {project.metric && (
+            <div className="metric">
+              <p className="metric-value">{project.metric.value}</p>
+              <p className="metric-label">{project.metric.label}</p>
+            </div>
+          )}
           <p className="kicker">stack</p>
           <ul className="tags">
             {project.stack.map((s) => (

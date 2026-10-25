@@ -8,6 +8,7 @@ export type Project = {
   note: { label: string; body: string };
   links: { label: string; href: string }[];
   shot?: { src: string; alt: string };
+  metric?: { value: string; label: string };
 };
 
 export const about = {
@@ -51,6 +52,10 @@ export const projects: Project[] = [
     title: "a11y Agent",
     blurb:
       "An accessibility agent that isn't allowed to grade its own homework.",
+    metric: {
+      value: "73–76%",
+      label: "of axe-detected violations fixed and re-verified, across four live sites",
+    },
     stack: ["Python", "Playwright", "axe-core", "GPT-4o-mini"],
     body: [
       "Scans a live page, proposes a context-aware fix for one of four issue types, applies it, re-scans to confirm the violation actually cleared, and retries once with the axe error as feedback before failing honestly.",
@@ -73,6 +78,10 @@ export const projects: Project[] = [
     title: "DocuMind",
     blurb: "Document Q&A that has to survive two retrievers before it answers.",
     status: "live",
+    metric: {
+      value: "27 / 27",
+      label: "top-1 recall on a hand-labelled eval, tied with plain vector search",
+    },
     stack: ["Next.js", "FastAPI", "Postgres + pgvector", "Langfuse"],
     body: [
       "Postgres full-text search and pgvector run side by side, and reciprocal rank fusion merges the two rankings. A passage has to place well on keyword match and on semantic similarity before it gets cited.",
@@ -132,6 +141,10 @@ export const projects: Project[] = [
     title: "Café Scrapbook",
     blurb: "Cafe discovery for Jaipur, ranked so new places can't game it.",
     status: "live",
+    metric: {
+      value: "45",
+      label: "Jaipur cafés, ranked from 44,717 reviews",
+    },
     stack: ["React 19", "Vite", "Tailwind", "GPT-4o-mini", "Gemini fallback"],
     body: [
       "45 Jaipur cafes drawn from a public Zomato dataset, with natural language search. GPT-4o-mini parses the query, Gemini takes over when it doesn't.",

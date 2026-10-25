@@ -1,5 +1,11 @@
 import { Nav, SectionHead, Button, Link } from "@/components/Layout";
-import { projects, about, writing, writingNote } from "@/content/site";
+import {
+  projects,
+  about,
+  experience,
+  writing,
+  writingNote,
+} from "@/content/site";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HeroReveal } from "@/components/HeroReveal";
 import { HelloCycle } from "@/components/HelloCycle";
@@ -138,8 +144,39 @@ export default function Home() {
 
         <section className="section">
           <SectionHead
-            id="work"
+            id="experience"
             index="02"
+            label="Experience"
+            title="Where the code has to keep working."
+          />
+          <article className="xp reveal">
+            <div className="xp-meta">
+              <p className="kicker kicker-accent">{experience.period}</p>
+              <p className="xp-org-meta">{experience.meta}</p>
+            </div>
+            <div>
+              <h3 className="xp-role">{experience.role}</h3>
+              <p className="xp-org">{experience.org}</p>
+              {experience.body.map((para) => (
+                <p key={para.slice(0, 24)} className="xp-para">
+                  {para}
+                </p>
+              ))}
+            </div>
+            <aside className="caveat">
+              <p className="caveat-label">
+                <span className="caveat-dot" aria-hidden="true" />
+                {experience.note.label}
+              </p>
+              <p>{experience.note.body}</p>
+            </aside>
+          </article>
+        </section>
+
+        <section className="section">
+          <SectionHead
+            id="work"
+            index="03"
             label="Selected work"
             title="Five projects. Built solo, architecture through deploy."
           />
@@ -153,7 +190,7 @@ export default function Home() {
         <section className="section">
           <SectionHead
             id="writing"
-            index="03"
+            index="04"
             label="Writing"
             title="Notes from when a measurement disagreed with me."
           />
@@ -197,7 +234,7 @@ export default function Home() {
         <section className="section">
           <SectionHead
             id="toolkit"
-            index="04"
+            index="05"
             label="Toolkit"
             title="What I reach for."
           />
@@ -209,7 +246,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="wrap">
-          <SectionHead id="contact" index="05" label="Contact" />
+          <SectionHead id="contact" index="06" label="Contact" />
           <div className="reveal">
             <p className="footer-title">
               Open to SDE and GenAI internships from{" "}
