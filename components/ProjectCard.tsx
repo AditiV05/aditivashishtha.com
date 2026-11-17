@@ -32,7 +32,7 @@ export function ProjectCard({
           </div>
           <div className="browser-view">
             <Image
-              className="shot"
+              className={project.shot.wide ? "shot shot-wide" : "shot"}
               src={project.shot.src}
               alt={project.shot.alt}
               width={1600}

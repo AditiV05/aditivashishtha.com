@@ -7,7 +7,7 @@ export type Project = {
   body: string[];
   note: { label: string; body: string };
   links: { label: string; href: string }[];
-  shot?: { src: string; alt: string };
+  shot?: { src: string; alt: string; wide?: boolean };
   metric?: { value: string; label: string };
 };
 
@@ -182,6 +182,7 @@ export const projects: Project[] = [
     ],
     shot: {
       src: "/shots/asci-home.webp",
+      wide: true,
       alt: "The conference homepage, with navigation across five sections and the hero showing dates and venue",
     },
   },
@@ -193,8 +194,8 @@ export const experience = {
   org: "Indraprastha Power Generation & Pragati Power Corporation",
   meta: "Govt. of NCT Delhi · IT department",
   body: [
-    "Maintaining and shipping features on the company's live internal web portals, frontend and backend, for a power utility that serves Delhi.",
-    "Directly accountable to the IT department for uptime, functionality and production stability of systems people use to do their jobs.",
+    "Maintained and shipped features on the company's live internal web portals, frontend and backend, for a power utility that serves Delhi.",
+    "Was directly accountable to the IT department for uptime, functionality and production stability of systems people use to do their jobs.",
   ],
   note: {
     label: "context",

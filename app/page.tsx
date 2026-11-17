@@ -12,7 +12,7 @@ import { HelloCycle } from "@/components/HelloCycle";
 import { ToolkitPills } from "@/components/ToolkitPills";
 import { Reveal } from "@/components/Reveal";
 import { Motion } from "@/components/Motion";
-import { CopyEmail, LocalTime } from "@/components/FooterExtras";
+import { SiteFooter } from "@/components/SiteFooter";
 import Image from "next/image";
 
 const EMAIL = "aditi.vashishthaa@gmail.com";
@@ -30,7 +30,7 @@ export default function Home() {
           <HeroReveal>
             <p className="availability" data-reveal="eyebrow">
               <span className="pulse" aria-hidden="true" />
-              Open to SDE &amp; GenAI roles · from November 2026
+              Open to SDE &amp; GenAI roles · available now
             </p>
 
             <h1 className="hero-title">
@@ -248,40 +248,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <SectionHead id="contact" index="06" label="Contact" />
-          <div className="reveal">
-            <p className="footer-title">
-              Open to SDE and GenAI roles from{" "}
-              <em>November 2026.</em>
-            </p>
-            <p className="footer-sub">
-              The fastest way to reach me is email. I answer.
-            </p>
-            <div className="footer-actions">
-              <a className="footer-email" href={`mailto:${EMAIL}`}>
-                {EMAIL}
-                <span aria-hidden="true">↗</span>
-              </a>
-              <CopyEmail email={EMAIL} />
-            </div>
-          </div>
-          <div className="footer-base">
-            <span className="footer-meta">
-              <span>© 2026 Aditi Vashishtha</span>
-              <LocalTime />
-            </span>
-            <span className="footer-links">
-              <Link href="https://github.com/AditiV05">GitHub</Link>
-              <Link href="https://linkedin.com/in/aditivashishthaa">
-                LinkedIn
-              </Link>
-              <Link href="/aditivashishtha_resume.pdf">Résumé</Link>
-            </span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

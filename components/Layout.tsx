@@ -22,11 +22,13 @@ function externalProps(href: string) {
     : {};
 }
 
-export function Nav() {
+// `base` is "/" on pages other than home, so section links point back to it
+export function Nav({ base = "" }: { base?: string }) {
+  const links = SECTIONS.map((l) => ({ ...l, href: base + l.href }));
   return (
     <header className="nav-shell">
       <nav className="nav" aria-label="Primary">
-        <a href="#top" className="nav-mark" aria-label="Aditi Vashishtha, home">
+        <a href={base || "#top"} className="nav-mark" aria-label="Aditi Vashishtha, home">
           <Image
             src="/motifs/elephant.png"
             alt=""
@@ -38,7 +40,7 @@ export function Nav() {
           Aditi Vashishtha
         </a>
         <div className="nav-links">
-          {SECTIONS.map((l) => (
+          {links.map((l) => (
             <a key={l.href} href={l.href}>
               {l.label}
             </a>
@@ -48,7 +50,7 @@ export function Nav() {
           Résumé
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
-        <MobileMenu links={SECTIONS} />
+        <MobileMenu links={links} />
       </nav>
     </header>
   );
