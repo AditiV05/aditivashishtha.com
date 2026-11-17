@@ -1309,7 +1309,7 @@
   .bento::before {
     content: "";
     position: absolute;
-    inset: -3rem -1.25rem;
+    inset: 0 -1.25rem;
     z-index: -1;
     background-image: url("/pattern3.webp");
     background-size: 380px auto;
@@ -1330,7 +1330,7 @@
 
   @media (min-width: 40rem) {
     .bento::before {
-      inset: -3rem -2rem;
+      inset: 0 -2rem;
     }
   }
 
@@ -1871,6 +1871,14 @@
     .shot {
       aspect-ratio: 16 / 9;
     }
+  }
+
+  /* a short, wide screenshot would lose its sides in a taller crop,
+     so it keeps its own proportions at every width */
+  .shot.shot-wide,
+  .project:hover .shot.shot-wide {
+    aspect-ratio: auto;
+    height: auto;
   }
 
   /* -- responsive: tighter padding on small phones -- */
